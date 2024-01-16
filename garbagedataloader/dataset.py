@@ -6,7 +6,7 @@ import tensorflow as tf
 
 import pathlib
 
-dataset_url = "smartbin.dataset/Datasets_test2.zip"
+dataset_url = "https://clouds.iec-uit.com/smartbin.dataset/Datasets_test2.zip"
 archive = tf.keras.utils.get_file(origin=dataset_url, extract=True)
 
 # Dataset path
