@@ -15,39 +15,36 @@ from garbagedataloader import dataset
 dataset.get_list_dataset()
 ```
 
-- Load the "Dataset" dataset as a dataframe for example (Will have modifications
+- For demonstration, load the "Datasets_test2" dataset as a dataframe and get the dataset path for future use
 ```python
-dataset_path = dataset.choose_dataset("Dataset")
+dataset_path = dataset.choose_dataset("Datasets_test2")
 ```
 
-- Load the Dataset dataset, divided into train and test sets as mentioned in the paper:
+- Load the dataset, divided into train and test sets
 ```python
-batch_size = 32
-img_height = 180
-img_width = 180
+# Note: The value is set to default as below. Change the value at your own will
+# dataset_path=archive, validation_split=0.2, subset="training", seed=123, img_height=256, img_width=256, batch_size=32
+train_ds = train_ds()
+test_ds = test_ds()
 ```
-```python
-import tensorflow as tf
-train_ds = tf.keras.utils.image_dataset_from_directory(
-  dataset_path,
-  validation_split=0.2,
-  subset="training",
-  seed=123,
-  image_size=(img_height, img_width),
-  batch_size=batch_size)
-```
-```python
-val_ds = tf.keras.utils.image_dataset_from_directory(
-  dataset_path,
-  validation_split=0.2,
-  subset="validation",
-  seed=123,
-  image_size=(img_height, img_width),
-  batch_size=batch_size)
-```
+
+
 - Get the list of class names for the collection of APK files we gathered:
 ```python
-class_names = train_ds.class_names
+class_names = get_classnames()
 print(class_names)
 ```
+
+- Get the image count of the entire dataset
+```python
+print(dataset_image_count(dataset_path))
+```
+
+- Get the image example from matplotlib
+```python
+get_images_using_matplotlib(train_ds, class_names)
+```
+
+
+
 
