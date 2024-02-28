@@ -56,7 +56,7 @@ def dataset_image_count(archive):
 # Train dataset
 def train_ds(dataset_path=archive, validation_split=0.2, subset="training", seed=123, img_height=256, img_width=256, batch_size=32):
     train_ds = tf.keras.utils.image_dataset_from_directory(
-      dataset_path=archive;
+      dataset_path=archive,
       validation_split=validation_split,
       subset=subset,
       seed=seed,
