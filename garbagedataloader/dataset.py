@@ -49,7 +49,7 @@ def choose_dataset(selected_dataset):
   archive = Path(archive)
   return archive
 
-archive = choose_dataset_and_get_archive("Datasets_test2")
+archive = choose_dataset("Datasets_test2")
 
 # Image count inside of a dataset
 def dataset_image_count(archive):
