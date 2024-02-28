@@ -49,6 +49,8 @@ def choose_dataset(selected_dataset):
   archive = Path(archive)
   return archive
 
+archive = choose_dataset_and_get_archive("Datasets_test2")
+
 # Image count inside of a dataset
 def dataset_image_count(archive):
     return len(list(archive.glob('*/*.jpg')))
@@ -56,7 +58,7 @@ def dataset_image_count(archive):
 # Train dataset
 def train_ds(dataset_path=archive, validation_split=0.2, subset="training", seed=123, img_height=256, img_width=256, batch_size=32):
     train_ds = tf.keras.utils.image_dataset_from_directory(
-      dataset_path=archive,
+      dataset_path,
       validation_split=validation_split,
       subset=subset,
       seed=seed,
@@ -68,7 +70,7 @@ def train_ds(dataset_path=archive, validation_split=0.2, subset="training", seed
 # Validation dataset
 def val_ds(dataset_path=archive, validation_split=0.2, subset="validation", seed=123, img_height=256, img_width=256, batch_size=32):
     val_ds = tf.keras.utils.image_dataset_from_directory(
-      dataset_path=archive,
+      dataset_path,
       validation_split=validation_split,
       subset=subset,
       seed=seed,
