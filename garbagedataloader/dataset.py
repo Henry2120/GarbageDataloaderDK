@@ -53,31 +53,31 @@ archive = choose_dataset("Datasets_test2")
 
 # Image count inside of a dataset
 def dataset_image_count(archive):
-    return len(list(archive.glob('*/*.jpg')))
+  return len(list(archive.glob('*/*.jpg')))
 
 # Train dataset
 def train_ds(dataset_path=archive, validation_split=0.2, subset="training", seed=123, img_height=256, img_width=256, batch_size=32):
-    train_ds = tf.keras.utils.image_dataset_from_directory(
-      dataset_path,
-      validation_split=validation_split,
-      subset=subset,
-      seed=seed,
-      image_size=(img_height, img_width),
-      batch_size=batch_size
+  train_ds = tf.keras.utils.image_dataset_from_directory(
+    dataset_path,
+    validation_split=validation_split,
+    subset=subset,
+    seed=seed,
+    image_size=(img_height, img_width),
+    batch_size=batch_size
     )
-    return train_ds
+  return train_ds
 
 # Validation dataset
 def val_ds(dataset_path=archive, validation_split=0.2, subset="validation", seed=123, img_height=256, img_width=256, batch_size=32):
-    val_ds = tf.keras.utils.image_dataset_from_directory(
-      dataset_path,
-      validation_split=validation_split,
-      subset=subset,
-      seed=seed,
-      image_size=(img_height, img_width),
-      batch_size=batch_size
+  val_ds = tf.keras.utils.image_dataset_from_directory(
+    dataset_path,
+    validation_split=validation_split,
+    subset=subset,
+    seed=seed,
+    image_size=(img_height, img_width),
+    batch_size=batch_size
     )
-    return val_ds
+  return val_ds
 
 # Function to get classnames
 def get_classnames():
