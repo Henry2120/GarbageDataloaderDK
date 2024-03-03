@@ -79,9 +79,7 @@ def val_ds(dataset_path=archive, validation_split=0.2, subset="validation", seed
     )
   return val_ds
 
-# Function to get classnames
-def get_classnames():
-  return train_ds.class_names
+class_names = train_ds.class_names
 
 # Function to print out samples 
 def get_images_using_matplotlib(dataset, class_names):
