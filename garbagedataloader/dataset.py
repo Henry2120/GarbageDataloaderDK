@@ -87,7 +87,7 @@ def get_classnames(archive):
 # Function to print out samples 
 def get_images_using_matplotlib(dataset, class_names):
   plt.figure(figsize=(10, 10))
-  for images, labels in train_ds.take(1):
+  for images, labels in dataset.take(1):
     for i in range(9):
       ax = plt.subplot(3, 3, i + 1)
       plt.imshow(images[i].numpy().astype("uint8"))
