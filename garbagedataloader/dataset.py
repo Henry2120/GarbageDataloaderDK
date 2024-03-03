@@ -37,7 +37,8 @@ def get_list_dataset():
     "Garbage_Classification",
     "Dataset",
     "waste_dataset",
-    "Datasets_test2"
+    "Datasets_test2",
+    "placeholder"
 ]
 
 # Choose dataset and get archive
@@ -49,7 +50,7 @@ def choose_dataset(selected_dataset):
   archive = Path(archive)
   return archive
 
-archive = choose_dataset("Datasets_test2")
+archive = choose_dataset("placeholder")
 
 # Image count inside of a dataset
 def dataset_image_count(archive):
