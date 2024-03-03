@@ -15,34 +15,32 @@ from garbagedataloader import dataset
 dataset.get_list_dataset()
 ```
 
-- For demonstration, load the "Datasets_test2" dataset as a dataframe and get the dataset path for future use
+- Choose any dataset from the list of dataset names. For demonstration, this article will get the Datasets_test2 as an example
 ```python
-dataset_path = dataset.choose_dataset("Datasets_test2")
+archive = dataset.choose_dataset("Datasets_test2")
 ```
-
-- Load the dataset, divided into train and test sets
+- Get the image count of the dataset
+```python
+dataset.dataset_image_count(archive)
+```
+- Load the dataset, divided into train and validation
 ```python
 # Note: The value is set to default as below. Change the value at your own will
 # dataset_path=archive, validation_split=0.2, subset="training", seed=123, img_height=256, img_width=256, batch_size=32
-train_ds = train_ds()
-test_ds = test_ds()
+train_ds = train_ds(dataset_path=archive)
+val_ds = val_ds(dataset_path=archive)
 ```
 
 
-- Get the list of class names for the collection of APK files we gathered:
+- Get the list of class names for the collection of files we gathered:
 ```python
-class_names = get_classnames()
+class_names = train_ds.class_names
 print(class_names)
-```
-
-- Get the image count of the entire dataset
-```python
-print(dataset_image_count(dataset_path))
 ```
 
 - Get the image example from matplotlib
 ```python
-get_images_using_matplotlib(train_ds, class_names)
+dataset.get_images_using_matplotlib(train_ds, class_names)
 ```
 
 
